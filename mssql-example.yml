@@ -1,0 +1,20 @@
+version: "3"
+services:
+  db:
+    image: microsoft/mssql-server-linux:latest
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "1433:1433"
+    networks:
+      - mssql_docker
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=^t#db78fO08
+      - MSSQL_PID=Express
+    volumes:
+      - "./data:/var/opt/mssql/data"
+networks:
+  mssql_docker:
