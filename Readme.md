@@ -36,3 +36,7 @@ You can check if the service is up and running with the following command:
 To stop the service run:
 
     docker stack rm mssql-example
+
+# Finding your way around the asp.net core api
+
+todo - right now the api does not yet connect to the sql server

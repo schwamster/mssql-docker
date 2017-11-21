@@ -1,5 +1,17 @@
 version: "3"
 services:
+  api:
+    image: mssql-example-api
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "5000:80"
+    networks:
+      - mssql_docker
+    environment:
+      - ConnectionString=^t#db78fO08
   db:
     image: microsoft/mssql-server-linux:latest
     deploy:
